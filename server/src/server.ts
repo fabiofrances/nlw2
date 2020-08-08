@@ -1,12 +1,12 @@
 import express from 'express';
-import Router from 'express';
+import cors from 'cors';
+import routes from './routes';
 
 const app = express();
 
-app.get('/users', (request, response, next ) => {
-  response.status(200).json({message: 'Hello World!'})
- 
-});
+app.use(express.json());
+app.use(cors());
+app.use(routes);
 
 app.listen(3333);
 
